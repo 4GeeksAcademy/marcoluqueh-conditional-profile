@@ -29,21 +29,42 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  // reset the website body with the new html output
+  let name = variables.name != null ? variables.name : "Lucy";
+  let lastName = variables.lastName != null ? variables.lastName : "Boilett";
+  let role = variables.role != null ? variables.role : "Web Developer";
+  let city = variables.city != null ? variables.city : "Miami";
+  let country = variables.country != null ? variables.country : "USA";
+  let twitterLink =
+    variables.twitter != null
+      ? variables.twitter
+      : "https://twitter.com/4geeksacademy";
+  let githubLink =
+    variables.github != null
+      ? variables.github
+      : "https://github.com/4geeksacademy";
+  let linkedinLink =
+    variables.linkedin != null
+      ? variables.linkedin
+      : "https://linkedin.com/school/4geeksacademy";
+  let instagramLink =
+    variables.instagram != null
+      ? variables.instagram
+      : "https://instagram.com/4geeksacademy";
+
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
-            ${cover}
-          <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
-          </ul>
-        </div>
-    `;
+    ${cover}
+  <img src="${variables.avatarURL}" class="photo" />
+  <h1>${name} ${lastName} </h1>
+  <h2>${role}</h2>
+  <h3>${city}, ${country}</h3>
+  <ul class="${variables.socialMediaPosition}">
+    <li><a href="${twitterLink}"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="${githubLink}"><i class="fab fa-github"></i></a></li>
+    <li><a href="${linkedinLink}"><i class="fab fa-linkedin"></i></a></li>
+    <li><a href="${instagramLink}"><i class="fab fa-instagram"></i></a></li>
+  </ul>
+</div>
+`;
 }
 
 /**
@@ -54,9 +75,13 @@ window.onload = function() {
     // if includeCover is true the algorithm should show the cover image
     includeCover: true,
     // this is the image's url that will be used as a background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://concepto.de/wp-content/uploads/2015/03/paisaje-e1549600034372.jpg",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://randomuser.me/api/portraits/women/" +
+      Math.floor(Math.random() * 99) +
+      ".jpg",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
