@@ -58,10 +58,10 @@ function render(variables = {}) {
   <h2>${role}</h2>
   <h3>${city}, ${country}</h3>
   <ul class="${variables.socialMediaPosition}">
-    <li><a href="${twitterLink}"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="${githubLink}"><i class="fab fa-github"></i></a></li>
-    <li><a href="${linkedinLink}"><i class="fab fa-linkedin"></i></a></li>
-    <li><a href="${instagramLink}"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="${twitterLink}" Target="_blank"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="${githubLink}" Target="_blank"><i class="fab fa-github"></i></a></li>
+    <li><a href="${linkedinLink}" Target="_blank"><i class="fab fa-linkedin"></i></a></li>
+    <li><a href="${instagramLink}" Target="_blank"><i class="fab fa-instagram"></i></a></li>
   </ul>
 </div>
 `;
@@ -75,8 +75,7 @@ window.onload = function() {
     // if includeCover is true the algorithm should show the cover image
     includeCover: true,
     // this is the image's url that will be used as a background for the profile cover
-    background:
-      "https://concepto.de/wp-content/uploads/2015/03/paisaje-e1549600034372.jpg",
+    background: ["https://picsum.photos/300/160?grayscale"],
     // this is the url for the profile avatar
     avatarURL:
       "https://randomuser.me/api/portraits/women/" +
